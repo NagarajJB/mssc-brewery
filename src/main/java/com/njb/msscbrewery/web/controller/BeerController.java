@@ -2,6 +2,7 @@ package com.njb.msscbrewery.web.controller;
 
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,11 +23,8 @@ import com.njb.msscbrewery.web.model.BeerDto;
 @RestController
 public class BeerController {
 
-	private final BeerService beerService;
-
-	public BeerController(BeerService beerService) {
-		this.beerService = beerService;
-	}
+	@Autowired
+	private BeerService beerService;
 
 	@GetMapping("/{beerId}")
 	public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId") UUID beerId) {

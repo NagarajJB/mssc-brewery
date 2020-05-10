@@ -22,11 +22,9 @@ public class CustomerController {
 		this.customerService = customerService;
 	}
 
-
-@GetMapping("/{customerId}")
-public ResponseEntity<CustomerDto> getCustomer(@PathVariable("customerId") UUID customerId){
-	return new ResponseEntity<CustomerDto>(customerService.getCustomerById(customerId), HttpStatus.OK);
-}
-
+	@GetMapping("/{customerId}")
+	public ResponseEntity<CustomerDto> getCustomer(@PathVariable("customerId") UUID customerId) {
+		return new ResponseEntity<CustomerDto>(customerService.getCustomerById(customerId), HttpStatus.OK);
+	}
 
 }
